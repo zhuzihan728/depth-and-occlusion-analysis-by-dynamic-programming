@@ -1,0 +1,7 @@
+1. To obtain the depth image by dynamic programming we assume that each pixel on the left image has a unique match to a pixel on the right image. However, on a binary random dot stereogram pixels are painted either black or white, so one pixel on one image has many identical pixels to match with on the other image. This lead to multiple global minima, and therefore uncertainties in constructing cost matrix and matching matrix, and therefore false matches when doing the backward pass. The error occurs because false matches between the images from multiple sensors camouflage the true (veridical) matches. True matches are correspondences between image points that have the same generative source; false matches are correspondences between similar image points that have different sources.
+
+2. Occlusion cost indicates the likelihood of one pixel to be determined as occluded in the algorithm, i.e., the higher the cost, the lower the likelihood. The cost should be deliberately calibrated. If the occlusion cost is set too high, a string of bad matches will be selected as the lower-cost path; if it is too low, some pixels that should have been matched will be treated as occlusion.
+
+3. Occlusion is the equivalent to the case in string matching that for the string (or substring) and the pattern (or subpattern) which are currently being studied, their last elements don't match.
+
+
